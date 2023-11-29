@@ -1,0 +1,33 @@
+\ProvidesPackage{minesvisual}
+
+\RequirePackage{xcolor}
+
+% See: https://brand.mines.edu/fonts/
+
+% Primary Palette
+\definecolor{DarkBlue}{RGB/CMYK}{33,49,77/95,72,15,62}
+\definecolor{BlasterBlue}{RGB/CMYK}{9,57,108/95,72,9,38}
+\definecolor{LightBlue}{RGB/CMYK}{135,158,195/43,26,3,8}
+\definecolor{ColoradoRed}{RGB/CMYK}{204,70,40/0,80,94,0}
+\definecolor{PaleBlue}{RGB/CMYK}{207,220,233/14,5,1,3}
+
+% Neutral Palette
+\definecolor{LightGray}{RGB/CMYK}{174,179,184/5,9,8,22}
+\definecolor{Silver}{RGB/CMYK}{129,132,138/23,17,13,41}
+
+% Accent Palette
+\definecolor{EarthBlue}{RGB/CMYK}{2,114,222/82,55,0,0}
+\definecolor{MutedBlue}{RGB/CMYK}{87,162,189/66,22,18,0/}
+\definecolor{EnergyYellow}{RGB/CMYK}{240,246,0/11,0,96,0}
+\definecolor{GoldenTech}{RGB/CMYK}{241,185,26/6,27,100,0}
+\definecolor{EnvironmentGreent}{RGB/CMYK}{128,195,66/55,0,99,0}
+\definecolor{RedFlannel}{RGB/CMYK}{180,32,36/20,100,100,12}
+
+
+% CS@Mines
+\newcommand{\csatmines}[0]{%
+  {\bfseries%
+    \fontfamily{Montserrat-TOsF}\selectfont%
+    \color{DarkBlue}{CS}%
+    \color{ColoradoRed}{@}%
+    {\color{DarkBlue}{Mines}}}}

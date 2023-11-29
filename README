@@ -1,0 +1,59 @@
+This repository contains LaTeX definitions and notes for the Colorado
+School of Mines [visual identity](https://brand.mines.edu/visual-identity/).
+
+Colors
+======
+
+The following colors are defined:
+- **Primary Pallete:**
+  - DarkBlue
+  - BlasterBlue
+  - LightBlue
+  - ColoradoRed
+  - PaleBlue
+- **Neutral Palette:**
+  - LightGray
+  - Silver
+- **Accent Palette:**
+  - EarthBlue
+  - MutedBlue
+  - EnergyYellow
+  - GoldenTech
+  - EnvironmentGreent
+  - RedFlannel
+
+Fonts
+=====
+
+Some of the recommended fonts are included in widely used LaTeX
+distributions.
+
+- **Halyard:** This font is proprietary and the recommended substitute
+  Arial is also proprietary.  Helvetica is a substitute for
+  Arial.  You can use Helvetica as follows:
+
+        % Put in preamble to use as the main font
+        \usepackage{helvet}
+        \renewcommand{\familydefault}{\sfdefault}
+
+        % ...
+
+        % Use Helvetica for specific text
+        \fontfamily{phv}\selectfont The quick brown fox...
+
+- **Oswald:** This font is included in widely used LaTeX
+  distributions:
+
+        % Use Oswald for specific text
+        \fontfamily{Zeroswald-TLF}\selectfont The quick brown fox...
+
+- **Roboto Mono:** This font is included in widely used LaTeX
+  distributions:
+
+        % Use Roboto for default monospaced text
+        \usepackage{roboto-mono}
+
+        % Use Roboto for specific text
+        \fontfamily{RobotoMono-TLF}\selectfont The quick brown fox...
+
+- **Boyrun:** Are you typesetting a comic book?
