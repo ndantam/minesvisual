@@ -1,1 +1,8 @@
 /auto/
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+/template-article.pdf
+/template-letter.pdf

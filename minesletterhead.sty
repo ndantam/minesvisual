@@ -1,0 +1,139 @@
+\ProvidesPackage{minesletterhead}
+
+\RequirePackage{graphicx}
+\RequirePackage{microtype}
+\RequirePackage{lastpage}
+
+\RequirePackage{calc}
+\RequirePackage{minesvisual}
+
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\voffset}{-1in}
+\setlength{\hoffset}{-1in}
+\setlength{\topmargin}{.5in}
+\setlength{\oddsidemargin}{1in}
+\setlength{\evensidemargin}{1in}
+\setlength{\textwidth}{\paperwidth - 2in}
+\setlength{\textheight}{\paperheight - 2in - .5in}
+\setlength{\footskip}{.5in}
+\setlength{\marginparsep}{0.5cm}
+\setlength{\marginparwidth}{1.5cm}
+\setlength{\headheight}{.5in}
+\setlength{\headsep}{.5in}
+
+
+\RequirePackage[colorlinks,bookmarksopen,bookmarksnumbered,
+citecolor=BlasterBlue,
+urlcolor=BlasterBlue,
+linkcolor=BlasterBlue
+]{hyperref}
+
+
+\RequirePackage{kvoptions}
+\SetupKeyvalOptions{
+  family=mines,          % Defines the option family name (e.g., MCS@...)
+  prefix=mines@          % Sets the prefix for internal macros (e.g., \ifMCS@print)
+}
+
+\DeclareBoolOption[false]{draft}
+\DeclareBoolOption[false]{sectionfont}
+
+\ProcessKeyvalOptions*
+
+\newif\iftelephone
+\telephonefalse
+\newcommand{\thetelephone}{}
+\def\telephone#1{\renewcommand{\thetelephone}{#1}\telephonetrue}
+
+\newif\ifemail
+\emailfalse
+\newcommand{\theemail}{}
+\def\email#1{\renewcommand{\theemail}{#1}\emailtrue}
+
+%%% Header and Footer %%%
+
+\RequirePackage{fancyhdr}
+
+\rhead{%
+  \includegraphics[height=2.5em,trim={25 25 26 27},clip]%
+  {wordmark}
+}
+
+\lhead{%
+  \color{LightBlue}{%
+    \footnotesize%
+    \iftelephone
+      \ifemail
+        \noindent{\bf Tel:} \thetelephone \\%
+        {\bf Email:} \theemail
+      \else
+        \noindent{\bf Tel:} \thetelephone
+      \fi
+    \else
+      \ifemail
+        \noindent{\bf Email:} \theemail
+      \else%
+      \fi
+    \fi
+  }
+}
+
+\cfoot{Page~\thepage~of \pageref*{LastPage}}
+
+\ifmines@draft
+\lfoot{\protect\leavevmode\color{gray}{DRAFT}}
+\rfoot{\protect\leavevmode\color{gray}{\today}}
+\else
+\lfoot{}
+\fi
+
+\renewcommand{\headrulewidth}{1.5pt}
+
+\renewcommand{\headrule}{\hbox to\headwidth{\color{ColoradoRed}\leaders\hrule height \headrulewidth\hfill}}
+
+\renewcommand{\footrulewidth}{0.0pt}
+\renewcommand{\footrule}{\hbox
+  to\headwidth{\color{LightBlue}\leaders\hrule height \footrulewidth\hfill}}
+
+\pagestyle{fancyplain}
+
+%%% End Header and Footer %%%
+
+
+%%% Fonts %%%
+
+%\RequirePackage{montserrat}
+\RequirePackage{helvet}
+
+% TLF which is common
+% \newcommand{\montserratfont}{\fontfamily{Montserrat-TLF}\selectfont}
+% TOsF which is also common in catalogs
+\newcommand{\montserratfont}{\fontfamily{Montserrat-TOsF}\selectfont}
+
+%% Section Fonts
+\ifmines@sectionfont
+\RequirePackage{titlesec}
+\titleformat*{\section}{\montserratfont\bfseries\Large}{}
+\titleformat*{\subsection}{\montserratfont\bfseries\large}{}
+\titleformat*{\subsubsection}{\montserratfont\bfseries\normalsize}{}
+\renewcommand{\abstractname}{\montserratfont\bfseries{Abstract}}
+
+% Title Font
+\RequirePackage{titling}
+\pretitle{\begin{center}\montserratfont\huge\bfseries}
+\posttitle{\end{center}}
+\preauthor{\begin{center}\large\montserratfont}
+\postauthor{\end{center}}
+% Set the font for the date as well if desired
+\predate{\begin{center}\small\montserratfont}
+\postdate{\end{center}}
+
+\fi
+
+%% Default Font
+\renewcommand{\familydefault}{\sfdefault}
+
+%%% End Font Setup %%%
+
+\endinput
