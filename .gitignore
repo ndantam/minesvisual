@@ -4,5 +4,10 @@
 *.out
 *.toc
 *.synctex.gz
+*.bbl
+*.blg
+*.lof
+*.lot
 /template-article.pdf
 /template-letter.pdf
+/template-pt.pdf

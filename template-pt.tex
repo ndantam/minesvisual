@@ -1,0 +1,900 @@
+\documentclass[letterpaper,12pt,times]{article}
+
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+
+\usepackage{float}
+\usepackage{afterpage}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{threeparttable}
+\usepackage{pdflscape}
+
+\usepackage{pdfpages}
+\newcommand{\pdfscale}[0]{.7647}
+
+\usepackage{microtype}
+\usepackage{minesvisual}
+\usepackage{multirow}
+
+\usepackage[colorlinks,bookmarksopen,bookmarksnumbered,
+citecolor=BlasterBlue,
+urlcolor=BlasterBlue,
+linkcolor=BlasterBlue,
+pdfusetitle
+]{hyperref}
+\renewcommand{\subsectionautorefname}{Subsection}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{caption}
+\captionsetup[figure]{labelfont={bf},labelformat={default}}
+\captionsetup[table]{font={it},labelfont={up,bf},labelformat={default}}
+\usepackage{subcaption}
+\usepackage{sectsty}
+\sectionfont{\centering}
+
+\newcommand{\thead}[1]{\textbf{#1}}
+\newcommand{\multithead}[2]{%
+  \multicolumn{#1}{|c|}{\thead{#2}}%
+}
+
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\sectionname}[0]{}
+\renewcommand{\sectionmark}[1]{\renewcommand{\sectionname}[0]{#1}}
+\newcommand{\subsectionname}[0]{}
+\renewcommand{\subsectionmark}[1]{\renewcommand{\subsectionname}[0]{#1}}
+
+
+% 1: label
+% 2: subsection name
+% 3: file
+\newcommand{\includepdfsubsec}[3]{%
+  \clearpage
+  \rhead{\thesection{} \sectionname, #2}
+
+  \includepdf[pages={1},scale=\pdfscale,frame=true,pagecommand={\subsection{#2}\label{#1}}]{#3}
+  \includepdf[pages={2-},scale=\pdfscale,frame=true,pagecommand={\pagestyle{fancy}}]{#3}
+}
+
+\renewcommand{\headrulewidth}{0pt}
+\cfoot{{\thepage} {of} {\pageref*{LastPage}}}
+\rhead{}
+\lhead{}
+\rfoot{}
+\lfoot{}
+\pagestyle{fancyplain}
+
+\renewcommand\thesubsubsection{\thesubsection\roman{subsubsection}}
+\renewcommand\thesubsection{\thesection\alph{subsection}.}
+\renewcommand\thesection{\arabic{section}.}
+
+\newif\ifinstr
+\instrtrue
+\usepackage{framed}
+\newcommand{\instr}[1]{
+  \ifinstr
+    \begin{leftbar}%
+      \begin{color}{ColoradoRed}%
+        \itshape
+        \noindent%
+        \ignorespaces%
+        #1
+      \end{color}
+    \end{leftbar}%
+  \else
+  \fi
+}
+
+\title{Promotion and Tenure Package}
+\author{Hubert J. Farnsworth}
+\date{July 1, 3022}
+
+% Uncomment to hide instructions
+% \instrfalse
+
+% Uncomment for draft versions. (Please ask senior faculty for
+% feedback on your draft package!)
+%
+% \rfoot{DRAFT: \today}
+% \lfoot{DRAFT: \today}
+
+\begin{document}
+\maketitle
+
+\thispagestyle{fancyplain}
+
+
+\renewcommand\contentsname{1. Table of Contents}
+\tableofcontents
+
+\listoftables
+
+\listoffigures
+
+\addtocounter{section}{1}
+
+
+\clearpage
+\rhead{\thesection{} \sectionname}
+\section{Department Head Memorandum}
+\instr{
+  (This section is completed by Department Head)
+
+  Memorandum from the Department Head should:
+
+  \begin{enumerate}
+  \item name the faculty member for whom the material is being submitted,
+
+  \item state whether the recommendation is for tenure or promotion or
+    both, and
+
+  \item certify that all required dossier sections are complete and in
+    the order as stated within the Procedures Manual.
+  \end{enumerate}
+}
+
+
+\clearpage
+\section{Current Faculty Contract}
+\instr{
+  Include here a copy of the candidate’s most recent, signed Faculty
+  Contract. If the candidate or department does not have a copy of the
+  Faculty Contract, contact the Office of Academic Affairs.
+}
+
+\rhead{\thesection{} Current Faculty Contract}
+
+% \includepdf[pages={1},scale=\pdfscale,frame=true,pagecommand={\section{Current Faculty Contract}}]{files/contract.pdf}
+% \includepdf[pages={2-},scale=\pdfscale,frame=true,pagecommand={}]{files/contract.pdf}
+
+\clearpage
+\section{Candidate Statement}
+\rhead{\thesubsection{} \sectionname, \subsectionname}
+
+\instr{
+  Provide a summary of important accomplishments (impacts and
+  advances) related to scholarship, teaching, and service in such a
+  way as to demonstrate a positive trajectory. Build upon facts,
+  describe the unique strengths and circumstances of the
+  application. Applications for promotion to Full Professor should
+  provide specific examples of leadership and national/international
+  recognition.  A narrative length of between two and five pages is
+  suggested.
+}
+
+
+% Precite our publications so we can reference publications in the
+% candidate statement without messing up the numbering.
+
+\newsavebox\precite
+\savebox\precite{\parbox{\textwidth}{\input{template-pt-pubinc}}}
+
+\subsection{Scholarship}
+
+% Summarize of publications for department committee letter
+\paragraph{Publications}
+I have published or had accepted in total XXX book chapter (at Mines),
+XXX refereed journal articles (XXX at Mines), and XXX refereed
+conference papers (XXX at Mines).  Of these, my Mines advisees were
+lead (or co-lead) authors on XXX refereed journal article and XXX
+refereed conference papers, and I was sole author while at Mines XXX.
+Additionally, XXX is/are currently under review.
+
+
+% Summarize of funding for department committee letter
+\paragraph{Funding}
+At Mines, I have submitted XXX proposals (XXX as lead PI).
+%
+Of those, XXX were funded (XXX as lead PI), for a total award of
+XXX and faculty share of XXX.
+%
+My research is sponsored by the ABC (XXX awards, XXX total, faculty
+share XXX), DEF (XXX awards, XXX total, faculty share XXX),
+and GHI (XXX award, XXX total, faculty share XXX).
+
+\paragraph{Research}
+
+\paragraph{Recognition}
+
+\paragraph{Collaboration}
+
+\subsection{Teaching}
+
+\subsection{Service}
+
+\paragraph{Department}
+
+\paragraph{Institution}
+
+\paragraph{External}
+
+\clearpage
+\section{Expanded Curriculum Vit\ae}
+\subsection{Personal Information}
+\instr{
+  Should include a brief listing of the following elements:
+  \begin{itemize}
+  \item Personal Data
+    \begin{itemize}
+    \item Name
+    \item Address (Home)
+    \item Citizenship (if applicable)
+    \end{itemize}
+
+  \item Education (Name and location of schools; degrees and dates)
+
+  \item Employment History (Date, title and major responsibilities)
+  \end{itemize}
+}
+
+
+\subsection{Teaching and Related Activities}
+\instr{
+  This section should include at a minimum the following components:
+  \begin{itemize}
+  \item Courses taught (course number and title – no dates)
+  \item Course development activities
+  \item Teaching research activities
+  \end{itemize}
+
+  Sample table summarizing instructional activities (i.e., courses
+  taught) is provided on the next page.
+
+  For Research and Library faculty for whom the section is not
+  relevant, include on this page the following sentence; “Not relevant
+  for promotion consideration of faculty member.”
+}
+
+
+\begin{table}[b]
+\caption{Courses Taught at Mines}
+\label{tab:courses}
+\centering
+\begin{tabular}{|cp{5.45cm}cp{1cm}p{4.75cm}|}
+\hline
+\thead{Number}
+& \multicolumn{1}{c}{\thead{Title}}
+& \thead{Type}
+& \thead{Credit Hours}
+& \multicolumn{1}{c|}{\thead{Notes}}\\
+\hline
+\hline
+  XXX YYY & ZZZ & Lecture & \multicolumn{1}{c}{3}
+& Required core course for CS undergraduate students
+  \\
+  \hline
+\end{tabular}
+\end{table}
+
+
+\afterpage{
+\begin{landscape}
+\begin{table}[H]
+\centering
+\caption{Course Summary for XXXYYY: ZZZ}
+\begin{small}
+\begin{tabular}{|cccp{2cm}cp{11.5cm}|}
+  \hline
+\thead{Term}
+& \thead{Section}
+& \thead{\% Resp.}
+& \thead{Num. of St.}
+& \thead{``Eff.''}
+& \thead{Comments}
+\\
+\hline
+\hline
+  S3021
+  & XXXYYY
+  & 100\%
+  & XXX
+  & XXX (XXX)
+  & XXX
+    \\
+  \hline
+
+\end{tabular}
+\end{small}
+\end{table}
+\end{landscape}
+}
+
+\subsection{Scholarly Activities}
+
+\instr{
+This section should include at a minimum the following components:
+\begin{itemize}
+    \item Students advised (M.S., Ph.D.; thesis title and date)
+    \item Unfunded research activities (title, dates; students
+      involved---name, degree)
+    \item Funded research activities (project title, agency, dates,
+      support level; students involved – name, degree)
+    \item Other research contributions (service on graduate
+      committees, interdisciplinary interactions)
+    \end{itemize}
+
+Sample table summarizing student advising information is provided below.
+
+
+Information related to external funding activities should include the following:
+
+\begin{itemize}
+\item Clearly state the total funding that the candidate has been
+  involved in securing as well as the individual’s total share.
+
+\item Clearly identify the amount of funding that is credited to the
+  candidate in each multi-investigator grant.
+
+\item Clearly identify the candidates’ role on each funding award,
+  e.g. PI, co-PI, senior investigator, etc.
+
+\item In collaborative grants with outside institutions, identify the
+  amount expended at CSM.
+
+\item List non-funded proposals (same level of detail as funded
+  proposals) to demonstrate track record for trying to obtain grant
+  funding.
+\end{itemize}
+
+Sample table summarizing some relevant grant information is provided
+on the following page.
+
+For Teaching and Library faculty for whom the section is not
+relevant, include on this page the following sentence; “Not relevant
+for promotion consideration of faculty member.”
+}
+
+\subsubsection*{Student Advising}
+
+\begin{table}[H]
+  \caption{Graduate Student Advising}
+  \centering
+\begin{tabular}{|cccc|}
+  %\hline
+  %\multithead{4}{Graduate Student Advising} \\
+  \hline
+  \thead{Student Name}
+  & \thead{Faculty Role}
+  & \thead{Degree \& Year}
+  & \thead{Funding Source}
+  \\
+  \hline
+  \hline
+  Blaster T. Burro
+  & Advisor
+  & Ph.D., Est. 2024
+  & Faculty Grant
+  \\
+  \hline
+\end{tabular}
+\end{table}
+
+
+\autoref{tab:grants} lists my funded grants.
+%
+\autoref{tab:proposal:review} lists proposals under review.
+%
+\autoref{tab:proposal:unfunded1} lists unfunded proposals.
+
+
+\begin{table}[H]
+  \caption{Undergraduate Student Advising}
+  \centering
+\begin{tabular}{|lll|}
+  % \hline
+  % \multithead{3}{Undergraduate Student Advising} \\
+  \hline
+  \thead{Student Name}
+  & \thead{Structure}
+  & \thead{Project}
+  \\
+  \hline
+  \hline
+  Marvin T. Miner
+  & MURF
+  & XXX
+  \\
+  \hline
+\end{tabular}
+\end{table}
+
+\afterpage{
+\begin{landscape}
+\begin{table}[H]
+  \caption{Funded Grants}
+  \label{tab:grants}
+  \centering
+  \begin{small}
+\begin{tabular}{|p{9cm}cccccp{4cm}|}
+  % \hline
+  % \multithead{7}{Funded Grants}\\
+  \hline
+ \thead{Title}
+  & \thead{Sponsor}
+  & \thead{Dur.}
+  & \thead{Amount}
+  & \thead{PI Share}
+  & \thead{Role}
+  & \thead{Co-PIs}
+    \\
+  \hline
+  \hline
+  XXX: YYY: ZZZ
+  & NSF
+  & 3 yr
+  & XXX
+  & XXX
+  & Co-PI
+  & XXX (PI), YYY
+  \\
+  \hline
+  \hline
+  &
+  & Total:
+  & \$XXX
+  & \$XXX
+  &
+  &
+  \\
+  \hline
+\end{tabular}
+\end{small}
+\end{table}
+
+
+\begin{table}[H]
+  \caption{Proposals Under Review}
+  \label{tab:proposal:review}
+  \centering
+  \begin{small}
+\begin{tabular}{|p{9cm}cccccp{4cm}|}
+  \hline
+  \thead{Title}
+  & \thead{Sponsor}
+  & \thead{Dur.}
+  & \thead{Amount}
+  & \thead{PI Share}
+  & \thead{Role}
+  & \thead{Co-PIs}
+    \\
+  \hline
+  \hline
+  XXX: YYY: ZZZ
+  & NSF
+  & 3 yr
+  & XXX
+  & XXX
+  & Co-PI
+  & XXX (PI), YYY
+  \\
+  \hline
+  \hline
+  &
+  & Total:
+  & \$XXX
+  & \$XXX
+  &
+  &
+  \\
+  \hline
+\end{tabular}
+\end{small}
+\end{table}
+
+\begin{table}[H]
+  \caption{Unfunded Proposals}
+  \label{tab:proposal:unfunded1}
+  \centering
+  \begin{small}
+\begin{tabular}{|p{9cm}cccccp{4cm}|}
+  \hline
+  \thead{Title}
+  & \thead{Sponsor}
+  & \thead{Dur.}
+  & \thead{Amount}
+  & \thead{PI Share}
+  & \thead{Role}
+  & \thead{Co-PIs}
+    \\
+  \hline
+  \hline
+  XXX: YYY: ZZZ
+  & NSF
+  & 3 yr
+  & XXX
+  & XXX
+  & Co-PI
+  & XXX (PI), YYY
+  \\
+  \hline
+  \hline
+  &
+  & Total:
+  & \$XXX
+  & \$XXX
+  &
+  &
+  \\
+  \hline
+\end{tabular}
+  \end{small}
+\end{table}
+\end{landscape}
+}
+
+
+\subsubsection*{Thesis Committees}
+
+\begin{table}[H]
+  \caption{Thesis Committees}
+\begin{tabular}{|lp{3in}ll|}
+  \hline
+  \thead{Name} & \thead{Thesis Title} & \thead{Degree} & \thead{Year}\\
+  \hline
+  \hline
+  Blaster T. Burro & Deleterious Effects of Sunlight on Multi-Generational
+                     Subterranean Burro Populations.
+                                      & M.S. & 1918 \\
+  \hline
+\end{tabular}
+\end{table}
+
+\subsection{Publications and Presentations}
+
+\instr{
+The following items should be included in this section:
+
+\begin{itemize}
+\item Books
+\item Refereed Journals
+\item Published in conference proceedings
+\item Published scientific discussions
+\item Published abstracts
+\item Book reviews
+\item Reports
+\item Presentations
+\item Other
+\end{itemize}
+
+ These should conform to the following format requirements
+
+ \begin{itemize}
+ \item Provide separate lists of archival journal publications,
+   book/book chapters, and conference proceedings. Clearly identify
+   publications that are peer reviewed and those that are not.
+
+ \item Clearly mark all co-authors who are CSM students and CSM
+   post-doctorals. In the example below, CSM students by *:\\
+   J. R. Smith, A. Gables, P.T. Barnum*, ``Interesting Research
+   Advances'', J. Important Research, 1, 40-48 (2013). DOI or
+   identifying link
+ \item If available, as part of the reference, also provide a
+   hyperlink to an electronic version of the publication.
+ \end{itemize}
+
+
+ For Teaching and Library faculty for whom the section is not
+ relevant, include on this page the following sentence; ``Not relevant
+ for promotion consideration of faculty member.''
+}
+
+Advised and Co-advised Mines student authors are identified with a
+$\star$ after the name.  Other Mines student authors identified with
+$\circ$ after the name.
+
+\input{template-pt-pubinc}
+
+\subsection{Honors, Awards, and Recognitions}
+
+
+\instr{
+  Provide information on any honors, awards and recognitions received
+  both internal and external to Mines.
+}
+
+
+\subsection{Service and Mentoring Activities}
+
+\instr{
+  Provide here a list of service and/or mentoring activities done by
+  the faculty member in support of the Department, Mines, and/or
+  external professional organizations. This should include:
+
+  \begin{itemize}
+    \item National and international committees, editorial boards, panels, review teams, etc.
+    \item Departmental and campus committees, graduate student
+      committees, junior faculty mentoring, assessment activities,
+      accreditation activities, student engagement and retention
+      activities, student group advising, activities in partnership
+      with Student Life, etc.
+    \item Professional societies
+    \item Outreach activities
+    \item Organizing conferences, sessions, workshops, etc.
+  \end{itemize}
+}
+
+
+
+\clearpage
+\section{Letter of Recommendation from Departmental Committee}
+\rhead{\thesection{} \sectionname}
+
+
+\instr{
+  (This section is completed by Department Committee)
+
+  (Departmental Committee inserts their letter(s) of recommendation
+  here) As directed by the Faculty Handbook, the Departmental
+  Promotion (and Tenure) Committee reviews the application package and
+  provides a recommendation(s) in writing to the Department Head that
+  is included here.
+
+  In preparing this recommendation, the Committee should consider the
+  criteria for tenure and/or promotion listed in the appropriate
+  section of the Faculty Handbook and is encouraged to address the
+  specific items listed in Section 6.5 of Academic Affairs Procedures
+  Manual.
+
+  The letter of recommendation(s) must list the names of all members
+  of the Departmental Promotion (and Tenure) Committee and be signed
+  by all members who participated in making the recommendation.  At
+  least $\frac{3}{4}$ of the eligible members of the Committee must participate in
+  the decision (participation in the tenure/review process is a
+  required service activity for all eligible committee members that
+  are not on sabbatical or extended sick leave). The final vote
+  (unanimous, or a number for or against the candidate’s request for
+  promotion and/or tenure) should be given.
+
+  If so desired, a separate letter prepared by members of the
+  Committee holding a minority view point may also be prepared and
+  included in this section.
+}
+
+
+\clearpage
+\section{Letter of Recommendation from Department Head}
+\rhead{\thesection{} \sectionname}
+\instr{
+  (This section is completed by Department Head)
+
+  (Department Head inserts her/his letter of recommendation here)
+
+  As directed by the Faculty Handbook, the Department Head reviews the
+  application package and provides a recommendation(s) in writing to
+  the appropriate University Promotion and/or Tenure Committee that is
+  included here.
+
+  In preparing this recommendation, the Department Head should
+  consider the criteria for tenure and/or promotion listed in the
+  appropriate section of the Faculty Handbook and is encouraged to
+  address the specific items listed in Section 6.5 of Academic Affairs
+  Procedures Manual.
+}
+
+\clearpage
+\section{Letter of Recommendation from College Dean}
+\rhead{\thesection{} \sectionname}
+
+\instr{
+  (This section is completed by College Dean)
+
+  (Department Head inserts her/his letter of recommendation here)
+
+  As directed by the Faculty Handbook, the College Dean reviews the
+  application package and provides a recommendation(s) in writing to
+  the appropriate University Promotion and/or Tenure Committee that is
+  included here.
+
+  In preparing this recommendation, the Dean should consider the
+  criteria for tenure and/or promotion listed in the appropriate
+  section of the Faculty Handbook and is encouraged to address the
+  specific items listed in Section 6.5 of Academic Affairs Procedures
+  Manual.
+}
+
+
+\clearpage
+\section{Performance Evaluations}
+\rhead{\thesection{} \sectionname}
+%
+\instr{
+  Insert Faculty Evaluation Summary sheets completed by the Department
+  Head for the past three most recent years.
+}
+
+% \includepdfsubsec{sec:perf:2019}{2019 (Fillable PDF)}{files/2019-eval-print.pdf}
+
+\clearpage
+\section{External Evaluation Letters}
+\rhead{\thesection{} \sectionname}
+% External evaluation letters omitted for preliminary review.
+% \input{sec/external-letter.tex}
+
+\clearpage
+\section{Submission Narratives}
+\rhead{\thesubsection{} \sectionname, \subsectionname}
+
+\subsection{Teaching Accomplishments}
+
+\instr{
+  This section should include information related to the following items:
+
+  \begin{enumerate}
+  \item a brief summary of student evaluation of teaching. If available,
+    this should include information other than student course
+    evaluations (e.g., class visits, course portfolios, etc.). Note the
+    expected teaching load in your department for faculty of your rank
+    at the undergraduate and/or graduate levels.
+
+  \item a portfolio of teaching materials. This should consist of a brief
+    (250-300 word) teaching philosophy statement followed by materials
+    that show the application of learning objectives, which may include
+    sample lesson plans, syllabi, sample graded student work, and/or
+    activities. It is not necessary to include all such materials, but
+    the candidate should select those materials that demonstrate
+    teaching excellence. Example assessment measures should also be
+    included to illustrate ways that the instructor evaluated the
+    efficacy of the curriculum, addressing: (a) rationale for the
+    changes/development, (b) evidence of how material changed (c)
+    assessment results – did the development accomplish the desired
+    goals? How do you know?
+
+  \item a brief description of innovative course development activities
+    and practices.
+
+  \item data on undergraduate student advising (level of effort,
+    co-advisors, outcomes). Differentiate undergraduate research
+    advising from conventional advising. For undergraduate research
+    advising, list student names, research period, graduation semester,
+    project title, and outcomes, such as conference presentations or
+    publications.
+
+  \item information related to workshops and short courses, number of
+    attendees, and your role (e.g., organizer, lecturer, one of two
+    instructors for three day course, etc.).
+  \end{enumerate}
+
+  For Research and Library faculty for whom the section is not relevant,
+  include on this page the following sentence; ``Not relevant for
+  promotion consideration of faculty member.''
+}
+
+
+\subsection{Scholarly Achievements}
+
+\instr{
+  Provide here a brief narrative describing evidence of scholarly
+  achievement in the your academic field and/or pedagogical
+  development. This narrative should, at a minimum:
+
+
+  \begin{itemize}
+  \item provide information regarding the quality of journals in which the
+    candidate has published his/her work,
+
+  \item provide acceptance rates and/or impact factors (or any other
+    published quality indicators or measures). If acceptance rates are
+    difficult to obtain from the Internet, candidates may consider
+    contacting journal editors directly,
+
+  \item provide information related to authorship conventions in your
+    field or subfield as appropriate (i.e., define how authorship order
+    determined for multi-author publications). If authorship order is
+    alphabetical, provide additional narrative defining role of
+    applicant in publications listed, and
+
+
+  \item if writing a book, text or otherwise, in your field or subfield is
+    considered an important scholarly contribution.
+  \end{itemize}
+
+  Please limit the length of this narrative to no more than two pages.
+
+  For Teaching and Library faculty for whom the section is not
+  relevant, include on this page the following sentence; ``Not relevant
+  for promotion consideration of faculty member.''
+}
+
+
+\subsection{External Funding Raised}
+
+\instr{
+Provide here a brief narrative describing evidence of external
+funding activities.
+
+Provide information on the competitiveness of the
+funding sources.
+
+Provide information on how the funds were
+utilized to support students, post-doctoral, and/or
+technicians.
+
+Identify products such as number of papers, software, workshops,
+book, patents, etc. that resulted from the funding generated.  This
+should reference and agree with your publication record as evidence
+in you CV in section 11.
+}
+
+\subsection{Student Advising}
+\instr{
+  If applicable, provide a brief narrative of graduate student
+  advising activities. Include in this narrative commentary on: 1)
+  funding activities used to support students, 2) student completion
+  rates, 3) scholarly activities (e.g., publications, presentations,
+  etc.) related to student work, and 4) any special items of merit or
+  note that students have obtained under your mentorship.
+
+  Please limit the length of this narrative to no more than two pages.
+
+  For Teaching and Library faculty for whom the section is not
+  relevant, include on this page the following sentence; ``Not
+  relevant for promotion consideration of faculty member.''
+}
+
+
+\subsection{Service and Mentoring Activities}
+
+\instr{
+  Provide here a brief summary of service and/or mentoring activities
+  done by the faculty member in support of the Department, Mines,
+  and/or external professional organizations. For all of the items
+  listed in the curriculum vitae the candidate should state his/her
+  level of effort and the impact of the contributions.
+
+  Please limit the length of this narrative to no more than two pages.
+}
+
+
+\subsection{Other Information}
+
+\instr{
+  Include here any other additional information the candidate believes
+  is relevant for consideration in his/her promotion/tenure
+  application.
+
+  Please limit the length of this narrative to no more than two pages.
+}
+
+\clearpage
+
+\appendix
+
+\renewcommand\thesection{\Alph{section}.}
+
+\rhead{\thesection{} \sectionname}
+
+\section{Impact of COVID}
+
+
+\clearpage
+\section{Sample Publications} %
+\label{sec:samplepubs}
+
+\clearpage
+\rhead{\thesection{} \sectionname}
+\section{Additional Evaluations of Teaching} %
+\label{sec:eval}
+
+This section contains additional evaluations of my teaching beyond the
+student course evaluations.
+
+\section{Sample Teaching Materials}
+\rhead{\thesection{} \sectionname}
+
+
+
+\bibliographystyle{IEEEtran}
+
+%% Include the bib, but hide it.
+%% TODO: maybe a hyper-ref conflict?
+\newsavebox\mytempbib
+\savebox\mytempbib{\parbox{\textwidth}{\bibliography{template-pt-ref}}}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
